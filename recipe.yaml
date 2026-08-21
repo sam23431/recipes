@@ -21,13 +21,6 @@ version: "1.0.0"
 author: "opencode"
 description: "QBCore + ox + Project Sloth, curated reliable open-source resources with ps-adminmenu in-game admin panel."
 
-variables:
-    dbHost: localhost
-    dbPort: 3306
-    dbUsername: root
-    dbPassword: ""
-    dbName: null
-
 tasks:
   # ===================== БАЗА / DEFAULT RESOURCES =====================
   - action: download_github

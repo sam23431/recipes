@@ -342,7 +342,7 @@ tasks:
   # Зависимости / утилиты qbcore-framework
   - action: download_github
     src: https://github.com/qbcore-framework/connectqueue
-    ref: main
+    ref: master
     dest: ./resources/[qb]/connectqueue
 
   - action: download_github
@@ -352,7 +352,7 @@ tasks:
 
   - action: download_github
     src: https://github.com/qbcore-framework/PolyZone
-    ref: main
+    ref: master
     dest: ./resources/[qb]/PolyZone
 
   # ===================== PROJECT SLOTH =====================

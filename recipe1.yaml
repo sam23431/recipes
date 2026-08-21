@@ -111,6 +111,8 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-adminmenu
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-ambulancejob
@@ -171,6 +173,8 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-truckerjob
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-busjob
@@ -231,6 +235,8 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-jewelery
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-interior
@@ -291,6 +297,8 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-cityhall
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-crypto
@@ -351,6 +359,8 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-truckrobbery
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-weed
@@ -412,6 +422,8 @@ tasks:
     ref: master
     dest: ./resources/[qb]/connectqueue
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/progressbar
@@ -473,6 +485,8 @@ tasks:
     ref: main
     dest: ./resources/[ps]/ps-mdt
 
+  - action: waste_time
+    seconds: 15
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-discord
@@ -530,6 +544,9 @@ tasks:
   # ===================== PLOKMJNB ПАКИ =====
   # Лёгкий car-pack (8 машин, ~160МБ) вместо 6.5ГБ пака, который не скачивается
   # из-за жёсткого 150с HTTP-лимита txAdmin. При желании замените на свой пак.
+  - action: waste_time
+    seconds: 120
+
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/GodHatesMe/8-Car-pack-for-FiveM
@@ -537,11 +554,17 @@ tasks:
     subpath: 8carpack
     dest: ./resources/[vehicles]/8carpack
 
+  - action: waste_time
+    seconds: 30
+
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
     ref: master
     dest: ./resources/[eup]/eup_stream
+
+  - action: waste_time
+    seconds: 30
 
   - action: download_github
     timeoutSeconds: 3600
@@ -549,17 +572,28 @@ tasks:
     ref: master
     dest: ./resources/[eup]/eup_law
 
+  - action: waste_time
+    seconds: 30
+
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
     ref: master
     dest: ./resources/[weapons]/weapon_pack
 
+  - action: waste_time
+    seconds: 30
+
   - action: download_github
     timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
     ref: master
     dest: ./resources/[weapons]/pistol_pack
+
+  - action: waste_time
+    seconds: 15
+  - action: waste_time
+    seconds: 30
 
   - action: download_github
     timeoutSeconds: 3600

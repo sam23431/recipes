@@ -528,12 +528,14 @@ tasks:
     dest: ./resources/[maps]/bob74_ipl
 
   # ===================== PLOKMJNB ПАКИ =====
-  # (авто-пак ~6ГБ - возвращён с таймаутом 1 час, как просили)
+  # Лёгкий car-pack (8 машин, ~160МБ) вместо 6.5ГБ пака, который не скачивается
+  # из-за жёсткого 150с HTTP-лимита txAdmin. При желании замените на свой пак.
   - action: download_github
     timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-Civ-Car-Pack
+    src: https://github.com/GodHatesMe/8-Car-pack-for-FiveM
     ref: master
-    dest: ./resources/[vehicles]/civ_car_pack
+    subpath: 8carpack
+    dest: ./resources/[vehicles]/8carpack
 
   - action: download_github
     timeoutSeconds: 3600
@@ -686,7 +688,7 @@ tasks:
       ensure bob74_ipl
 
       # ===== ТРАНСПОРТ =====
-      ensure civ_car_pack
+      ensure 8carpack
 
       # ===== EUP / ОДЕЖДА =====
       ensure eup_stream

@@ -41,7 +41,7 @@ tasks:
     dest: ./resources/[qb]/qb-core
 
   - action: query_database
-    file: ./resources/[qb]/qb-core/sql/legacy.sql
+    file: ./resources/[qb]/qb-core/qbcore.sql
 
   # oxmysql / ox_lib / ox_inventory (releases - стабильнее клона)
   - action: download_file
@@ -49,21 +49,21 @@ tasks:
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
-    dest: ./resources/[ox]/oxmysql
+    dest: ./resources/[ox]
 
   - action: download_file
     url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
   - action: unzip
     src: ./tmp/ox_lib.zip
-    dest: ./resources/[ox]/ox_lib
+    dest: ./resources/[ox]
 
   - action: download_file
     url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./resources/[ox]/ox_inventory
+    dest: ./resources/[ox]
 
   - action: download_github
     src: https://github.com/overextended/ox_target
@@ -423,13 +423,13 @@ tasks:
     path: ./tmp/npwd.zip
   - action: unzip
     src: ./tmp/npwd.zip
-    dest: ./resources/[standalone]/npwd
+    dest: ./resources/[standalone]
 
   - action: query_database
     file: ./resources/[standalone]/npwd/import.sql
 
   - action: download_github
-    src: https://github.com/illenium-irl/illenium-appearance
+    src: https://github.com/fivemland/illenium-appearance
     ref: main
     dest: ./resources/[standalone]/illenium-appearance
 

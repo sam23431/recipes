@@ -553,49 +553,8 @@ tasks:
   - action: waste_time
     seconds: 30
 
-  - action: download_github
-    timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
-    ref: master
-    dest: ./resources/[eup]/eup_stream
-
-  - action: waste_time
-    seconds: 30
-
-  - action: download_github
-    timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-EUP-Law-Enforcement
-    ref: master
-    dest: ./resources/[eup]/eup_law
-
-  - action: waste_time
-    seconds: 30
-
-  - action: download_github
-    timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
-    ref: master
-    dest: ./resources/[weapons]/weapon_pack
-
-  - action: waste_time
-    seconds: 30
-
-  - action: download_github
-    timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
-    ref: master
-    dest: ./resources/[weapons]/pistol_pack
-
-  - action: waste_time
-    seconds: 15
-  - action: waste_time
-    seconds: 30
-
-  - action: download_github
-    timeoutSeconds: 3600
-    src: https://github.com/PLOKMJNB/FiveM-Tennis
-    ref: master
-    dest: ./resources/[games]/tennis
+  # ПАКИ PLOKMJNB (EUP/Weapon/Pistol/Tennis) удалены: этих репозиториев не существует (404).
+  # При желании добавьте рабочие аналоги отдельными задачами download_github.
 
   # ===================== SERVER.CFG =====================
   - action: write_file
@@ -721,16 +680,8 @@ tasks:
       ensure baller
       ensure buffalo2
 
-      # ===== EUP / ОДЕЖДА =====
-      ensure eup_stream
-      ensure eup_law
-
-      # ===== ОРУЖИЕ =====
-      ensure weapon_pack
-      ensure pistol_pack
-
-      # ===== МИНИ-ИГРЫ =====
-      ensure tennis
+      # ===== EUP / ОРУЖИЕ / МИНИ-ИГРЫ =====
+      # (паки PLOKMJNB удалены — 404; добавьте рабочие аналоги отдельно)
 
   # ===================== ОЧИСТКА =====================
   - action: remove_path

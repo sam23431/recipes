@@ -36,21 +36,21 @@ tasks:
   - action: connect_database
 
   - action: download_file
-    url: https://github.com/esx-framework/esx-core/releases/latest/download/esx_core.zip
-    path: ./tmp/esx_core.zip
+    url: https://github.com/esx-framework/esx-legacy/archive/refs/heads/main.zip
+    path: ./tmp/esx_legacy.zip
   - action: unzip
-    src: ./tmp/esx_core.zip
-    dest: ./tmp/esx_core
-    
+    src: ./tmp/esx_legacy.zip
+    dest: ./tmp/esx_legacy
+
   - action: move_path
-    src: ./tmp/esx_core/esx_core
+    src: ./tmp/esx_legacy/esx-legacy-main
     dest: ./tmp/core
 
   - action: query_database
     file: ./tmp/core/[SQL]/legacy.sql
 
   - action: download_github
-    src: https://github.com/esx-framework/ESX-Legacy-Addons
+    src: https://github.com/fivemland/Addons
     ref: main
     dest: ./tmp/addons
 
@@ -78,7 +78,7 @@ tasks:
     dest: ./resources/[ox]
 
   - action: download_file
-    url: https://github.com/At0mit0s/ox_inventory_redesign/releases/latest/download/ox_inventory.zip
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
@@ -162,7 +162,7 @@ tasks:
     src: https://github.com/fivemland/nv_loadingscreen
     ref: v1.6
     dest: ./resources/[fivemland]/nv_loadingscreen
-  
+
   - action: download_github
     src: https://github.com/monolith-vision/monolith-clothingmenu
     ref: main
@@ -185,19 +185,24 @@ tasks:
 
   - action: remove_path
     path: ./tmp
+
   - action: remove_path
     path: ./resources/[core]/esx_skin
+
   - action: remove_path
     path: ./resources/[core]/skinchanger
-  - action: remove_path
-    path: ./resources/[core]/skinchanger
+
   - action: remove_path
     path: ./resources/[core]/esx_loadingscreen
+
   - action: remove_path
     path: ./resources/[esx_addons]/esx_accessories
+
   - action: remove_path
     path: ./resources/[esx_addons]/esx_barbershop
+
   - action: remove_path
     path: ./resources/[esx_addons]/esx_clotheshop
+
   - action: remove_path
     path: ./resources/[esx_addons]/esx_shops

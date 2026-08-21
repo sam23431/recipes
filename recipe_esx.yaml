@@ -1,0 +1,389 @@
+$engine: 3
+$onesync: 'on'
+name: ESX Legacy Curated
+author: recipe builder
+description: ESX Legacy with many community mods, phone, voice, maps, admin panel (dsAdminMenu) and a vehicle pack.
+tasks:
+- action: download_github
+  src: https://github.com/citizenfx/cfx-server-data
+  ref: master
+  subpath: resources
+  dest: ./resources/[cfx-default]
+- action: remove_path
+  path: ./resources/[cfx-default]/[gameplay]/chat
+- action: connect_database
+- action: download_github
+  src: https://github.com/esx-framework/esx-core
+  ref: main
+  dest: ./tmp/core
+- action: query_database
+  file: ./tmp/core/[SQL]/legacy.sql
+- action: download_github
+  src: https://github.com/esx-framework/ESX-Legacy-Addons/
+  ref: main
+  dest: ./tmp/addons
+  timeoutSeconds: 900
+- action: move_path
+  src: ./tmp/core/[core]
+  dest: ./resources/[core]
+- action: move_path
+  src: ./tmp/addons/[esx_addons]
+  dest: ./resources/[esx_addons]
+- action: download_github
+  src: https://github.com/Bob74/bob74_ipl
+  ref: master
+  dest: ./resources/[standalone]/bob74_ipl
+- action: download_github
+  src: https://github.com/AvarianKnight/pma-voice
+  ref: main
+  dest: ./resources/[standalone]/pma-voice
+- action: download_file
+  path: ./tmp/files/oxmysql.zip
+  url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+- action: unzip
+  dest: ./resources/[standalone]
+  src: ./tmp/files/oxmysql.zip
+- action: download_file
+  path: ./tmp/files/ox_lib.zip
+  url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+- action: unzip
+  dest: ./resources/[standalone]
+  src: ./tmp/files/ox_lib.zip
+- action: download_github
+  src: https://github.com/Samuels-Development/sd-phone-props
+  ref: main
+  dest: ./resources/[standalone]/sd-phone-props
+- action: download_file
+  url: https://github.com/Samuels-Development/sd-phone/releases/latest/download/sd-phone.zip
+  path: ./tmp/sd-phone.zip
+- action: unzip
+  src: ./tmp/sd-phone.zip
+  dest: ./resources/[standalone]
+- action: download_github
+  src: https://github.com/overextended/ox_target
+  ref: main
+  dest: ./resources/[standalone]/ox_target
+- action: download_github
+  src: https://github.com/Brinnrhirt/dsAdminMenu
+  ref: main
+  dest: ./resources/[esx]/dsAdminMenu
+- action: download_github
+  src: https://github.com/DynastyRevolution/FiveM-NPC-Car-Replace-Pack
+  ref: main
+  dest: ./resources/[vehicles]/npccarpack
+- action: download_github
+  src: https://github.com/esx-community/esx_truckerjob
+  ref: master
+  dest: ./resources/[esx]/esx_truckerjob
+- action: download_github
+  src: https://github.com/esx-community/esx_fishing
+  ref: master
+  dest: ./resources/[esx]/esx_fishing
+- action: download_github
+  src: https://github.com/esx-community/esx_diving
+  ref: master
+  dest: ./resources/[esx]/esx_diving
+- action: download_github
+  src: https://github.com/esx-community/esx_carwash
+  ref: master
+  dest: ./resources/[esx]/esx_carwash
+- action: download_github
+  src: https://github.com/esx-community/esx_unicornjob
+  ref: master
+  dest: ./resources/[esx]/esx_unicornjob
+- action: download_github
+  src: https://github.com/esx-community/esx_vigneronjob
+  ref: master
+  dest: ./resources/[esx]/esx_vigneronjob
+- action: download_github
+  src: https://github.com/esx-community/esx_brinksjob
+  ref: master
+  dest: ./resources/[esx]/esx_brinksjob
+- action: download_github
+  src: https://github.com/esx-community/esx_lawyerjob
+  ref: master
+  dest: ./resources/[esx]/esx_lawyerjob
+- action: download_github
+  src: https://github.com/esx-community/esx_thief
+  ref: master
+  dest: ./resources/[esx]/esx_thief
+- action: download_github
+  src: https://github.com/esx-community/esx_foodtruck
+  ref: master
+  dest: ./resources/[esx]/esx_foodtruck
+- action: waste_time
+  seconds: 20
+- action: download_github
+  src: https://github.com/esx-community/esx_blanchisseur
+  ref: master
+  dest: ./resources/[esx]/esx_blanchisseur
+- action: download_github
+  src: https://github.com/esx-community/esx_advanced_holdup
+  ref: master
+  dest: ./resources/[esx]/esx_advanced_holdup
+- action: download_github
+  src: https://github.com/esx-community/esx_cinema
+  ref: master
+  dest: ./resources/[esx]/esx_cinema
+- action: download_github
+  src: https://github.com/esx-community/esx_copweapon
+  ref: master
+  dest: ./resources/[esx]/esx_copweapon
+- action: download_github
+  src: https://github.com/esx-community/esx_dj
+  ref: master
+  dest: ./resources/[esx]/esx_dj
+- action: download_github
+  src: https://github.com/esx-community/esx_dockshop
+  ref: master
+  dest: ./resources/[esx]/esx_dockshop
+- action: download_github
+  src: https://github.com/esx-community/esx_hacking
+  ref: master
+  dest: ./resources/[esx]/esx_hacking
+- action: download_github
+  src: https://github.com/esx-community/esx_hospital
+  ref: master
+  dest: ./resources/[esx]/esx_hospital
+- action: download_github
+  src: https://github.com/esx-community/esx_jail
+  ref: master
+  dest: ./resources/[esx]/esx_jail
+- action: download_github
+  src: https://github.com/esx-community/esx_npcdrugsales
+  ref: master
+  dest: ./resources/[esx]/esx_npcdrugsales
+- action: download_github
+  src: https://github.com/esx-community/esx_outlawalert
+  ref: master
+  dest: ./resources/[esx]/esx_outlawalert
+- action: download_github
+  src: https://github.com/esx-community/esx_radars
+  ref: master
+  dest: ./resources/[esx]/esx_radars
+- action: download_github
+  src: https://github.com/esx-community/esx_realweapons
+  ref: master
+  dest: ./resources/[esx]/esx_realweapons
+- action: download_github
+  src: https://github.com/esx-community/esx_scoreboard
+  ref: master
+  dest: ./resources/[esx]/esx_scoreboard
+- action: download_github
+  src: https://github.com/esx-community/esx_securitycam
+  ref: master
+  dest: ./resources/[esx]/esx_securitycam
+- action: download_github
+  src: https://github.com/esx-community/esx_slotmachine
+  ref: master
+  dest: ./resources/[esx]/esx_slotmachine
+- action: download_github
+  src: https://github.com/esx-community/esx_spectate
+  ref: master
+  dest: ./resources/[esx]/esx_spectate
+- action: download_github
+  src: https://github.com/esx-community/esx_speed_radar
+  ref: master
+  dest: ./resources/[esx]/esx_speed_radar
+- action: download_github
+  src: https://github.com/esx-community/esx_tattooshop
+  ref: master
+  dest: ./resources/[esx]/esx_tattooshop
+- action: download_github
+  src: https://github.com/esx-community/esx_teleportpads
+  ref: master
+  dest: ./resources/[esx]/esx_teleportpads
+- action: waste_time
+  seconds: 20
+- action: download_github
+  src: https://github.com/esx-community/esx_vangelico_robbery
+  ref: master
+  dest: ./resources/[esx]/esx_vangelico_robbery
+- action: download_github
+  src: https://github.com/esx-community/esx_vehicle_inventory
+  ref: master
+  dest: ./resources/[esx]/esx_vehicle_inventory
+- action: download_github
+  src: https://github.com/esx-community/esx_vehiclelock
+  ref: master
+  dest: ./resources/[esx]/esx_vehiclelock
+- action: download_github
+  src: https://github.com/esx-community/esx_kn_sushishop
+  ref: master
+  dest: ./resources/[esx]/esx_kn_sushishop
+- action: download_github
+  src: https://github.com/esx-community/esx_eden_clotheshop
+  ref: master
+  dest: ./resources/[esx]/esx_eden_clotheshop
+- action: download_github
+  src: https://github.com/esx-community/esx_gcidentity
+  ref: master
+  dest: ./resources/[esx]/esx_gcidentity
+- action: download_github
+  src: https://github.com/esx-community/esx_aiomenu
+  ref: master
+  dest: ./resources/[esx]/esx_aiomenu
+- action: download_github
+  src: https://github.com/esx-community/esx_objet
+  ref: master
+  dest: ./resources/[esx]/esx_objet
+- action: download_github
+  src: https://github.com/esx-community/esx_infoillegal
+  ref: master
+  dest: ./resources/[esx]/esx_infoillegal
+- action: download_github
+  src: https://github.com/esx-community/esx_jobCounter
+  ref: master
+  dest: ./resources/[esx]/esx_jobCounter
+- action: download_github
+  src: https://github.com/esx-community/esx_joblogs
+  ref: master
+  dest: ./resources/[esx]/esx_joblogs
+- action: download_github
+  src: https://github.com/esx-community/esx_cratedelivery
+  ref: master
+  dest: ./resources/[esx]/esx_cratedelivery
+- action: download_github
+  src: https://github.com/esx-community/eden_darknet
+  ref: master
+  dest: ./resources/[esx]/eden_darknet
+- action: download_github
+  src: https://github.com/esx-community/esx_corona
+  ref: master
+  dest: ./resources/[esx]/esx_corona
+- action: download_github
+  src: https://github.com/esx-community/esx_coronergate
+  ref: master
+  dest: ./resources/[esx]/esx_coronergate
+- action: download_github
+  src: https://github.com/esx-community/esx_rpsuicide
+  ref: master
+  dest: ./resources/[esx]/esx_rpsuicide
+- action: download_github
+  src: https://github.com/esx-community/esx_unishow
+  ref: master
+  dest: ./resources/[esx]/esx_unishow
+- action: download_github
+  src: https://github.com/esx-community/esx_adrp_vehicle
+  ref: master
+  dest: ./resources/[esx]/esx_adrp_vehicle
+- action: download_github
+  src: https://github.com/esx-community/nb_menuperso
+  ref: master
+  dest: ./resources/[esx]/nb_menuperso
+- action: download_github
+  src: https://github.com/esx-framework/esx_bankerjob
+  ref: main
+  dest: ./resources/[esx]/esx_bankerjob
+- action: waste_time
+  seconds: 20
+- action: download_github
+  src: https://github.com/esx-framework/esx_holdup
+  ref: main
+  dest: ./resources/[esx]/esx_holdup
+- action: download_github
+  src: https://github.com/esx-framework/esx_sit
+  ref: main
+  dest: ./resources/[esx]/esx_sit
+- action: write_file
+  file: ./server.cfg
+  data: '# ESX Legacy server.cfg (generated by recipe)
+
+    {{serverEndpoints}}
+
+
+    # Editable Settings
+
+    sets tags "default, esx, esx legacy, roleplay"
+
+    sv_licenseKey "{{svLicense}}"
+
+    sv_hostname "{{serverName}} | ESX Legacy Server"
+
+    sets sv_projectName "{{serverName}} | [{{recipeName}}]"
+
+    sets sv_projectDesc "{{recipeDescription}}"
+
+    set mysql_connection_string "{{dbConnectionString}}"
+
+    sv_maxclients {{maxClients}}
+
+    sets locale "root-AQ"
+
+    sv_enforceGameBuild 3258
+
+    set resources_useSystemChat true
+
+
+    # System Administrators
+
+    add_principal group.admin group.user
+
+    add_ace group.admin command allow
+
+    add_ace group.admin command.quit deny
+
+    add_ace resource.es_extended command.add_ace allow
+
+    add_ace resource.es_extended command.add_principal allow
+
+    add_ace resource.es_extended command.remove_principal allow
+
+    add_ace resource.es_extended command.stop allow
+
+    {{addPrincipalsMaster}}
+
+
+    # pma-voice
+
+    setr voice_enableRadioAnim 1
+
+    setr voice_useNativeAudio true
+
+    setr voice_useSendingRangeOnly true
+
+
+    # security
+
+    sv_enableNetworkedSounds false
+
+    sv_enableNetworkedScriptEntityStates false
+
+    sv_enableNetworkedPhoneExplosions false
+
+    sv_filterRequestControl 2
+
+
+    # Default & Standalone
+
+    ensure chat
+
+    ensure hardcap
+
+    ensure oxmysql
+
+    ensure esx_lib
+
+
+    # ESX Legacy Core
+
+    ensure es_extended
+
+    ensure [core]
+
+
+    # Addons / Standalone / Extra
+
+    ensure [standalone]
+
+    ensure [esx_addons]
+
+    ensure [esx]
+
+    ensure baller
+
+    ensure buffalo2
+
+    '
+- action: remove_path
+  path: ./tmp

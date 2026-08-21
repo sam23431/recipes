@@ -449,54 +449,37 @@ tasks:
     ref: master
     dest: ./resources/[maps]/bob74_ipl
 
-  # ===================== ТРАНСПОРТ / МАШИНЫ (паки) =====================
-  - action: download_github
-    src: https://github.com/PLOKMJNB/FiveM-Civ-Car-Pack
-    ref: master
-    dest: ./resources/[vehicles]/civ_car_pack
-
-  - action: download_github
-    src: https://github.com/PLOKMJNB/FiveM-Police-Car-Pack
-    ref: master
-    dest: ./resources/[vehicles]/police_car_pack
-
-  - action: download_github
-    src: https://github.com/PLOKMJNB/FiveM-Motorcycle-Pack
-    ref: master
-    dest: ./resources/[vehicles]/motorcycle_pack
-
-  - action: download_github
-    src: https://github.com/PLOKMJNB/FiveM-Bicycle-Pack
-    ref: master
-    dest: ./resources/[vehicles]/bicycle_pack
-
-  # ===================== EUP / ОДЕЖДА ПОЛИЦИИ =====================
+  # ===================== PLOKMJNB ПАКИ =====
+  # (пакам машин ~6ГБ - убраны: таймаут при деплое. Добавь свои авто-паки отдельно)
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
     ref: master
     dest: ./resources/[eup]/eup_stream
+    timeoutSeconds: 600
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-EUP-Law-Enforcement
     ref: master
     dest: ./resources/[eup]/eup_law
+    timeoutSeconds: 600
 
-  # ===================== ОРУЖИЕ =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
     ref: master
     dest: ./resources/[weapons]/weapon_pack
+    timeoutSeconds: 600
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
     ref: master
     dest: ./resources/[weapons]/pistol_pack
+    timeoutSeconds: 600
 
-  # ===================== МИНИ-ИГРЫ =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Tennis
     ref: master
     dest: ./resources/[games]/tennis
+    timeoutSeconds: 600
 
   # ===================== SERVER.CFG =====================
   - action: write_file
@@ -619,10 +602,7 @@ tasks:
       ensure bob74_ipl
 
       # ===== ТРАНСПОРТ =====
-      ensure civ_car_pack
-      ensure police_car_pack
-      ensure motorcycle_pack
-      ensure bicycle_pack
+      # (пакам машин ~6ГБ убраны: таймаут при деплое; добавь свои авто-паки и раскомментируй ensure)
 
       # ===== EUP / ОДЕЖДА =====
       ensure eup_stream

@@ -541,18 +541,14 @@ tasks:
     ref: master
     dest: ./resources/[maps]/bob74_ipl
 
-  # ===================== PLOKMJNB ПАКИ =====
-  # Лёгкий car-pack (8 машин, ~160МБ) вместо 6.5ГБ пака, который не скачивается
-  # из-за жёсткого 150с HTTP-лимита txAdmin. При желании замените на свой пак.
-  - action: waste_time
-    seconds: 120
-
+  # ===================== ТРАНСПОРТ (car-pack) =====
+  # Свежий небольшой пак (~32МБ) вместо тех, что упирались в 150с лимит GitHub для этого IP.
   - action: download_github
     timeoutSeconds: 3600
-    src: https://github.com/GodHatesMe/8-Car-pack-for-FiveM
-    ref: master
-    subpath: 8carpack
-    dest: ./resources/[vehicles]/8carpack
+    src: https://github.com/DynastyRevolution/FiveM-NPC-Car-Replace-Pack
+    ref: main
+    dest: ./resources/[vehicles]/npccarpack
+
 
   - action: waste_time
     seconds: 30
@@ -722,7 +718,8 @@ tasks:
       ensure bob74_ipl
 
       # ===== ТРАНСПОРТ =====
-      ensure 8carpack
+      ensure baller
+      ensure buffalo2
 
       # ===== EUP / ОДЕЖДА =====
       ensure eup_stream

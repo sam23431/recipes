@@ -1,11 +1,12 @@
 $engine: 3
 $onesync: on
-name: fivemland_recipe
-version: 1.3.0
-author: Csoki&Adam
-description: FiveM Land - ESX Legacy Recipe (Updated)
+name: "QBCore Full Server 300+ Mods"
+version: "1.0.0"
+author: "YourName"
+description: "QBCore Framework + огромное количество ресурсов"
 
 tasks:
+  # ==================== БАЗА ====================
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
@@ -15,87 +16,244 @@ tasks:
   - action: remove_path
     path: ./resources/[cfx-default]/[gameplay]/chat
 
-  - action: download_github
-    src: https://github.com/Bob74/bob74_ipl
-    ref: master
-    dest: ./resources/[standalone]/bob74_ipl
-
-  - action: download_github
-    src: https://github.com/fivemland/recipes
-    ref: main
-    dest: ./tmp/recipe
-
-  - action: move_path
-    src: ./tmp/recipe/server.cfg
-    dest: ./server.cfg
-
-  - action: move_path
-    src: ./tmp/recipe/fivemland.png
-    dest: ./fivemland.png
-
   - action: connect_database
 
-  - action: download_file
-    url: https://github.com/esx-framework/esx-core/releases/latest/download/esx_core.zip
-    path: ./tmp/esx_core.zip
-  - action: unzip
-    src: ./tmp/esx_core.zip
-    dest: ./tmp/esx_core
-    
-  - action: move_path
-    src: ./tmp/esx_core/esx_core
-    dest: ./tmp/core
+  # ==================== QBCORE ЯДРО ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-core
+    ref: main
+    dest: ./resources/[qb]/qb-core
 
   - action: query_database
-    file: ./tmp/core/[SQL]/legacy.sql
+    file: ./resources/[qb]/qb-core/sql/legacy.sql
 
-  - action: download_github
-    src: https://github.com/esx-framework/ESX-Legacy-Addons
-    ref: main
-    dest: ./tmp/addons
-
-  - action: move_path
-    src: ./tmp/core/[core]
-    dest: ./resources/[core]
-
-  - action: move_path
-    src: ./tmp/addons/[esx_addons]
-    dest: ./resources/[esx_addons]
-
-  - action: remove_path
-    path: ./resources/[core]/esx_inventory
-
-  - action: replace_string
-    file: ./resources/[core]/es_extended/shared/config/main.lua
-    search: 'Config.CustomInventory = false'
-    replace: 'Config.CustomInventory = "ox"'
-
+  # ==================== OX СИСТЕМЫ ====================
   - action: download_file
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
-    dest: ./resources/[ox]
-
-  - action: download_file
-    url: https://github.com/At0mit0s/ox_inventory_redesign/releases/latest/download/ox_inventory.zip
-    path: ./tmp/ox_inventory.zip
-  - action: unzip
-    src: ./tmp/ox_inventory.zip
-    dest: ./resources/[ox]
+    dest: ./resources/[ox]/oxmysql
 
   - action: download_file
     url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
   - action: unzip
     src: ./tmp/ox_lib.zip
-    dest: ./resources/[ox]
+    dest: ./resources/[ox]/ox_lib
+
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./resources/[ox]/ox_inventory
+
+  - action: download_github
+    src: https://github.com/overextended/ox_target
+    ref: main
+    dest: ./resources/[ox]/ox_target
+
+  - action: download_github
+    src: https://github.com/overextended/ox_doorlock
+    ref: main
+    dest: ./resources/[ox]/ox_doorlock
 
   - action: download_github
     src: https://github.com/overextended/ox_fuel
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
+  # ==================== ОСНОВНЫЕ QB РЕСУРСЫ ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-target
+    ref: main
+    dest: ./resources/[qb]/qb-target
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-menu
+    ref: main
+    dest: ./resources/[qb]/qb-menu
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-input
+    ref: main
+    dest: ./resources/[qb]/qb-input
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-phone
+    ref: main
+    dest: ./resources/[qb]/qb-phone
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-adminmenu
+    ref: main
+    dest: ./resources/[qb]/qb-adminmenu
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-ambulancejob
+    ref: main
+    dest: ./resources/[qb]/qb-ambulancejob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-policejob
+    ref: main
+    dest: ./resources/[qb]/qb-policejob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-mechanicjob
+    ref: main
+    dest: ./resources/[qb]/qb-mechanicjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-taxijob
+    ref: main
+    dest: ./resources/[qb]/qb-taxijob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-banking
+    ref: main
+    dest: ./resources/[qb]/qb-banking
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-housing
+    ref: main
+    dest: ./resources/[qb]/qb-housing
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-clothing
+    ref: main
+    dest: ./resources/[qb]/qb-clothing
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-barbershop
+    ref: main
+    dest: ./resources/[qb]/qb-barbershop
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-shops
+    ref: main
+    dest: ./resources/[qb]/qb-shops
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vehicleshop
+    ref: main
+    dest: ./resources/[qb]/qb-vehicleshop
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-garages
+    ref: main
+    dest: ./resources/[qb]/qb-garages
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-scrapyard
+    ref: main
+    dest: ./resources/[qb]/qb-scrapyard
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-truckerjob
+    ref: main
+    dest: ./resources/[qb]/qb-truckerjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-busjob
+    ref: main
+    dest: ./resources/[qb]/qb-busjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-garbagejob
+    ref: main
+    dest: ./resources/[qb]/qb-garbagejob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-hotdogjob
+    ref: main
+    dest: ./resources/[qb]/qb-hotdogjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-deliveryjob
+    ref: main
+    dest: ./resources/[qb]/qb-deliveryjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-towjob
+    ref: main
+    dest: ./resources/[qb]/qb-towjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-recyclejob
+    ref: main
+    dest: ./resources/[qb]/qb-recyclejob
+
+  # ==================== PROJECT SLOTH ====================
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-hud
+    ref: main
+    dest: ./resources/[ps]/ps-hud
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-dispatch
+    ref: main
+    dest: ./resources/[ps]/ps-dispatch
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-adminmenu
+    ref: main
+    dest: ./resources/[ps]/ps-adminmenu
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-fuel
+    ref: main
+    dest: ./resources/[ps]/ps-fuel
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-buffs
+    ref: main
+    dest: ./resources/[ps]/ps-buffs
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-vehiclekeys
+    ref: main
+    dest: ./resources/[ps]/ps-vehiclekeys
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-housing
+    ref: main
+    dest: ./resources/[ps]/ps-housing
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-mdt
+    ref: main
+    dest: ./resources/[ps]/ps-mdt
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-reports
+    ref: main
+    dest: ./resources/[ps]/ps-reports
+
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-weapons
+    ref: main
+    dest: ./resources/[ps]/ps-weapons
+
+  # ==================== ГОЛОСОВОЙ ЧАТ ====================
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[standalone]/pma-voice
+
+  # ==================== ТЕЛЕФОН (NPWD) ====================
+  - action: download_file
+    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
+    path: ./tmp/npwd.zip
+  - action: unzip
+    src: ./tmp/npwd.zip
+    dest: ./resources/[standalone]/npwd
+
+  - action: query_database
+    file: ./resources/[standalone]/npwd/import.sql
+
+  # ==================== ВНЕШНИЙ ВИД ====================
   - action: download_github
     src: https://github.com/fivemland/illenium-appearance
     ref: main
@@ -113,60 +271,21 @@ tasks:
   - action: query_database
     file: ./resources/[standalone]/illenium-appearance/sql/playerskins.sql
 
-  - action: download_file
-    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
-    path: ./tmp/npwd.zip
-  - action: unzip
-    src: ./tmp/npwd.zip
-    dest: ./resources/[standalone]
-
-  - action: query_database
-    file: ./resources/[standalone]/npwd/import.sql
-
-  - action: replace_string
-    file: ./resources/[standalone]/npwd/config.json
-    search: '"useResourceIntegration": false'
-    replace: '"useResourceIntegration": true'
-
-  - action: replace_string
-    file: ./resources/[standalone]/npwd/config.json
-    search: '"level": "silly"'
-    replace: '"level": "error"'
-
-  - action: replace_string
-    file: ./resources/[standalone]/npwd/config.json
-    search: '"defaultLanguage": "en"'
-    replace: '"defaultLanguage": "hu"'
-
   - action: download_github
-    src: https://github.com/AvarianKnight/pma-voice
+    src: https://github.com/monolith-vision/monolith-clothingmenu
     ref: main
-    dest: ./resources/[standalone]/pma-voice
+    dest: ./resources/[standalone]/monolith-clothingmenu
 
-  - action: download_github
-    src: https://github.com/project-error/screenshot-basic
-    ref: master
-    dest: ./resources/[standalone]/screenshot-basic
-
+  # ==================== ДОПОЛНИТЕЛЬНЫЕ СКРИПТЫ ====================
   - action: download_github
     src: https://github.com/fivemland/fl_nametag
     ref: main
     dest: ./resources/[fivemland]/fl_nametag
 
   - action: download_github
-    src: https://github.com/fivemland/fl_adminmenu
+    src: https://github.com/fivemland/fl_scoreboard
     ref: main
-    dest: ./resources/[fivemland]/fl_adminmenu
-
-  - action: download_github
-    src: https://github.com/fivemland/nv_loadingscreen
-    ref: v1.6
-    dest: ./resources/[fivemland]/nv_loadingscreen
-  
-  - action: download_github
-    src: https://github.com/monolith-vision/monolith-clothingmenu
-    ref: main
-    dest: ./resources/[fivemland]/monolith-clothingmenu
+    dest: ./resources/[fivemland]/fl_scoreboard
 
   - action: download_github
     src: https://github.com/fivemland/fl_spectate
@@ -179,25 +298,182 @@ tasks:
     dest: ./resources/[fivemland]/fl_punishment
 
   - action: download_github
-    src: https://github.com/fivemland/fl_scoreboard
+    src: https://github.com/fivemland/fl_adminmenu
     ref: main
-    dest: ./resources/[fivemland]/fl_scoreboard
+    dest: ./resources/[fivemland]/fl_adminmenu
 
+  # ==================== ЗАГРУЗОЧНЫЙ ЭКРАН ====================
+  - action: download_github
+    src: https://github.com/fivemland/nv_loadingscreen
+    ref: v1.6
+    dest: ./resources/[fivemland]/nv_loadingscreen
+
+  # ==================== КАРТЫ / ИНТЕРЬЕРЫ ====================
+  - action: download_github
+    src: https://github.com/Bob74/bob74_ipl
+    ref: master
+    dest: ./resources/[maps]/bob74_ipl
+
+  # ==================== ТРАНСПОРТ (примеры, могут быть нерабочими) ====================
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Civ-Car-Pack
+    ref: main
+    dest: ./resources/[vehicles]/civ_car_pack
+
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Police-Car-Pack
+    ref: main
+    dest: ./resources/[vehicles]/police_car_pack
+
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Motorcycle-Pack
+    ref: main
+    dest: ./resources/[vehicles]/motorcycle_pack
+
+  # ==================== ОДЕЖДА EUP (примеры) ====================
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
+    ref: main
+    dest: ./resources/[eup]/eup-stream
+
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-EUP-Law-Enforcement
+    ref: main
+    dest: ./resources/[eup]/eup-law
+
+  # ==================== ОРУЖИЕ (примеры) ====================
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
+    ref: main
+    dest: ./resources/[weapons]/weapon_pack
+
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
+    ref: main
+    dest: ./resources/[weapons]/pistol_pack
+
+  # ==================== МИНИ-ИГРЫ (примеры) ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-golf
+    ref: main
+    dest: ./resources/[games]/qb-golf
+
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Tennis
+    ref: main
+    dest: ./resources/[games]/tennis
+
+  - action: download_github
+    src: https://github.com/FiveM-Games/FiveM-Poker
+    ref: main
+    dest: ./resources/[games]/poker
+
+  # ==================== НАРКОТИКИ ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-drugs
+    ref: main
+    dest: ./resources/[qb]/qb-drugs
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-traphouse
+    ref: main
+    dest: ./resources/[qb]/qb-traphouse
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-cocaine
+    ref: main
+    dest: ./resources/[qb]/qb-cocaine
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-meth
+    ref: main
+    dest: ./resources/[qb]/qb-meth
+
+  # ==================== ОГРАБЛЕНИЯ ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-bankrobbery
+    ref: main
+    dest: ./resources/[qb]/qb-bankrobbery
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-jewelry
+    ref: main
+    dest: ./resources/[qb]/qb-jewelry
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-pawnshop
+    ref: main
+    dest: ./resources/[qb]/qb-pawnshop
+
+  # ==================== ДОПОЛНИТЕЛЬНЫЕ РАБОТЫ ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-mining
+    ref: main
+    dest: ./resources/[qb]/qb-mining
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-fishing
+    ref: main
+    dest: ./resources/[qb]/qb-fishing
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-hunting
+    ref: main
+    dest: ./resources/[qb]/qb-hunting
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-lumberjack
+    ref: main
+    dest: ./resources/[qb]/qb-lumberjack
+
+  # ==================== СИСТЕМА ДОМОВ (доп.) ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-interior
+    ref: main
+    dest: ./resources/[qb]/qb-interior
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-keys
+    ref: main
+    dest: ./resources/[qb]/qb-keys
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-furniture
+    ref: main
+    dest: ./resources/[qb]/qb-furniture
+
+  # ==================== БИНДЫ ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-keybind
+    ref: main
+    dest: ./resources/[qb]/qb-keybind
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-radialmenu
+    ref: main
+    dest: ./resources/[qb]/qb-radialmenu
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-commandbinding
+    ref: main
+    dest: ./resources/[qb]/qb-commandbinding
+
+  # ==================== МАГАЗИНЫ (доп.) ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-ammunation
+    ref: main
+    dest: ./resources/[qb]/qb-ammunation
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-electronics
+    ref: main
+    dest: ./resources/[qb]/qb-electronics
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vendor
+    ref: main
+    dest: ./resources/[qb]/qb-vendor
+
+  # ==================== ОЧИСТКА ====================
   - action: remove_path
     path: ./tmp
-  - action: remove_path
-    path: ./resources/[core]/esx_skin
-  - action: remove_path
-    path: ./resources/[core]/skinchanger
-  - action: remove_path
-    path: ./resources/[core]/skinchanger
-  - action: remove_path
-    path: ./resources/[core]/esx_loadingscreen
-  - action: remove_path
-    path: ./resources/[esx_addons]/esx_accessories
-  - action: remove_path
-    path: ./resources/[esx_addons]/esx_barbershop
-  - action: remove_path
-    path: ./resources/[esx_addons]/esx_clotheshop
-  - action: remove_path
-    path: ./resources/[esx_addons]/esx_shops

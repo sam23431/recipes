@@ -560,6 +560,9 @@ tasks:
   - action: write_file
     file: ./server.cfg
     data: |
+      endpoint_add_tcp "0.0.0.0:30120"
+      endpoint_add_udp "0.0.0.0:30120"
+
       # ===== БАЗОВАЯ КОНФИГУРАЦИЯ =====
       set sv_hostname "{{serverName}}"
       set sv_licenseKey "{{svLicense}}"

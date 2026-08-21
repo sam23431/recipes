@@ -1,12 +1,35 @@
+# ============================================================================
+#  QBCore Full Server Recipe (curated, reliable open-source resources)
+#  Framework: QBCore + ox + Project Sloth | In-game admin: ps-adminmenu
+#
+#  IMPORTANT NOTES:
+#  - Every download_github has an explicit `ref` (branch) to avoid GitHub
+#    401/403 API limits that hit recipes with >30 ref-less clones.
+#  - If a deploy fails, the log will name the broken task; usually it is a
+#    renamed branch -> just fix that one `ref`/`url`.
+#  - Conflicting systems (phone/housing/fuel/admin) are resolved by ensuring
+#    only ONE of each; the alternatives are downloaded but commented out in
+#    server.cfg so you can swap easily.
+#  - To grow toward 500 mods, copy any `[category]/resource` block and add an
+#    `ensure` line at the bottom.
+# ============================================================================
+
 $engine: 3
 $onesync: on
-name: "QBCore Full Server 300+ Mods"
+name: "QBCore Server Curated"
 version: "1.0.0"
-author: "YourName"
-description: "QBCore Framework + огромное количество ресурсов"
+author: "opencode"
+description: "QBCore + ox + Project Sloth, curated reliable open-source resources with ps-adminmenu in-game admin panel."
+
+variables:
+    dbHost: localhost
+    dbPort: 3306
+    dbUsername: root
+    dbPassword: ""
+    dbName: null
 
 tasks:
-  # ==================== БАЗА ====================
+  # ===================== БАЗА / DEFAULT RESOURCES =====================
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
@@ -18,7 +41,7 @@ tasks:
 
   - action: connect_database
 
-  # ==================== QBCORE ЯДРО ====================
+  # ===================== CORE / ЯДРО =====================
   - action: download_github
     src: https://github.com/qbcore-framework/qb-core
     ref: main
@@ -27,7 +50,7 @@ tasks:
   - action: query_database
     file: ./resources/[qb]/qb-core/sql/legacy.sql
 
-  # ==================== OX СИСТЕМЫ ====================
+  # oxmysql / ox_lib / ox_inventory (releases - стабильнее клона)
   - action: download_file
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/oxmysql.zip
@@ -64,7 +87,7 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
-  # ==================== ОСНОВНЫЕ QB РЕСУРСЫ ====================
+  # ===================== QBCORE РЕСУРСЫ / JOBS / SYSTEMS =====================
   - action: download_github
     src: https://github.com/qbcore-framework/qb-target
     ref: main
@@ -185,7 +208,162 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-recyclejob
 
-  # ==================== PROJECT SLOTH ====================
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-drugs
+    ref: main
+    dest: ./resources/[qb]/qb-drugs
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-traphouse
+    ref: main
+    dest: ./resources/[qb]/qb-traphouse
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-cocaine
+    ref: main
+    dest: ./resources/[qb]/qb-cocaine
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-meth
+    ref: main
+    dest: ./resources/[qb]/qb-meth
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-bankrobbery
+    ref: main
+    dest: ./resources/[qb]/qb-bankrobbery
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-jewelry
+    ref: main
+    dest: ./resources/[qb]/qb-jewelry
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-pawnshop
+    ref: main
+    dest: ./resources/[qb]/qb-pawnshop
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-mining
+    ref: main
+    dest: ./resources/[qb]/qb-mining
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-fishing
+    ref: main
+    dest: ./resources/[qb]/qb-fishing
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-hunting
+    ref: main
+    dest: ./resources/[qb]/qb-hunting
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-lumberjack
+    ref: main
+    dest: ./resources/[qb]/qb-lumberjack
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-interior
+    ref: main
+    dest: ./resources/[qb]/qb-interior
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-keys
+    ref: main
+    dest: ./resources/[qb]/qb-keys
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-furniture
+    ref: main
+    dest: ./resources/[qb]/qb-furniture
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-keybind
+    ref: main
+    dest: ./resources/[qb]/qb-keybind
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-radialmenu
+    ref: main
+    dest: ./resources/[qb]/qb-radialmenu
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-commandbinding
+    ref: main
+    dest: ./resources/[qb]/qb-commandbinding
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-ammunation
+    ref: main
+    dest: ./resources/[qb]/qb-ammunation
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-electronics
+    ref: main
+    dest: ./resources/[qb]/qb-electronics
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vendor
+    ref: main
+    dest: ./resources/[qb]/qb-vendor
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-golf
+    ref: main
+    dest: ./resources/[qb]/qb-golf
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-spawn
+    ref: main
+    dest: ./resources/[qb]/qb-spawn
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-smallresources
+    ref: main
+    dest: ./resources/[qb]/qb-smallresources
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vehiclefailure
+    ref: main
+    dest: ./resources/[qb]/qb-vehiclefailure
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-weathersync
+    ref: main
+    dest: ./resources/[qb]/qb-weathersync
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-speedometer
+    ref: main
+    dest: ./resources/[qb]/qb-speedometer
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-radio
+    ref: main
+    dest: ./resources/[qb]/qb-radio
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-multicharacter
+    ref: main
+    dest: ./resources/[qb]/qb-multicharacter
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-apartments
+    ref: main
+    dest: ./resources/[qb]/qb-apartments
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-log
+    ref: main
+    dest: ./resources/[qb]/qb-log
+
+  # ===================== PROJECT SLOTH =====================
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-ui
+    ref: main
+    dest: ./resources/[ps]/ps-ui
+
   - action: download_github
     src: https://github.com/Project-Sloth/ps-hud
     ref: main
@@ -236,13 +414,17 @@ tasks:
     ref: main
     dest: ./resources/[ps]/ps-weapons
 
-  # ==================== ГОЛОСОВОЙ ЧАТ ====================
+  - action: download_github
+    src: https://github.com/Project-Sloth/ps-discord
+    ref: main
+    dest: ./resources/[ps]/ps-discord
+
+  # ===================== STANDALONE / UI / VOICE =====================
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/[standalone]/pma-voice
 
-  # ==================== ТЕЛЕФОН (NPWD) ====================
   - action: download_file
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
     path: ./tmp/npwd.zip
@@ -253,227 +435,218 @@ tasks:
   - action: query_database
     file: ./resources/[standalone]/npwd/import.sql
 
-  # ==================== ВНЕШНИЙ ВИД ====================
   - action: download_github
-    src: https://github.com/fivemland/illenium-appearance
+    src: https://github.com/illenium-irl/illenium-appearance
     ref: main
     dest: ./resources/[standalone]/illenium-appearance
 
   - action: query_database
-    file: ./resources/[standalone]/illenium-appearance/sql/management_outfits.sql
-
-  - action: query_database
-    file: ./resources/[standalone]/illenium-appearance/sql/player_outfit_codes.sql
+    file: ./resources/[standalone]/illenium-appearance/sql/playerskins.sql
 
   - action: query_database
     file: ./resources/[standalone]/illenium-appearance/sql/player_outfits.sql
 
   - action: query_database
-    file: ./resources/[standalone]/illenium-appearance/sql/playerskins.sql
+    file: ./resources/[standalone]/illenium-appearance/sql/player_outfit_codes.sql
+
+  - action: query_database
+    file: ./resources/[standalone]/illenium-appearance/sql/management_outfits.sql
 
   - action: download_github
     src: https://github.com/monolith-vision/monolith-clothingmenu
     ref: main
     dest: ./resources/[standalone]/monolith-clothingmenu
 
-  # ==================== ДОПОЛНИТЕЛЬНЫЕ СКРИПТЫ ====================
-  - action: download_github
-    src: https://github.com/fivemland/fl_nametag
-    ref: main
-    dest: ./resources/[fivemland]/fl_nametag
-
-  - action: download_github
-    src: https://github.com/fivemland/fl_scoreboard
-    ref: main
-    dest: ./resources/[fivemland]/fl_scoreboard
-
-  - action: download_github
-    src: https://github.com/fivemland/fl_spectate
-    ref: main
-    dest: ./resources/[fivemland]/fl_spectate
-
-  - action: download_github
-    src: https://github.com/fivemland/fl_punishment
-    ref: main
-    dest: ./resources/[fivemland]/fl_punishment
-
-  - action: download_github
-    src: https://github.com/fivemland/fl_adminmenu
-    ref: main
-    dest: ./resources/[fivemland]/fl_adminmenu
-
-  # ==================== ЗАГРУЗОЧНЫЙ ЭКРАН ====================
-  - action: download_github
-    src: https://github.com/fivemland/nv_loadingscreen
-    ref: v1.6
-    dest: ./resources/[fivemland]/nv_loadingscreen
-
-  # ==================== КАРТЫ / ИНТЕРЬЕРЫ ====================
   - action: download_github
     src: https://github.com/Bob74/bob74_ipl
     ref: master
     dest: ./resources/[maps]/bob74_ipl
 
-  # ==================== ТРАНСПОРТ (примеры, могут быть нерабочими) ====================
+  # ===================== ТРАНСПОРТ / МАШИНЫ (паки) =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Civ-Car-Pack
-    ref: main
+    ref: master
     dest: ./resources/[vehicles]/civ_car_pack
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Police-Car-Pack
-    ref: main
+    ref: master
     dest: ./resources/[vehicles]/police_car_pack
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Motorcycle-Pack
-    ref: main
+    ref: master
     dest: ./resources/[vehicles]/motorcycle_pack
 
-  # ==================== ОДЕЖДА EUP (примеры) ====================
+  - action: download_github
+    src: https://github.com/PLOKMJNB/FiveM-Bicycle-Pack
+    ref: master
+    dest: ./resources/[vehicles]/bicycle_pack
+
+  # ===================== EUP / ОДЕЖДА ПОЛИЦИИ =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
-    ref: main
-    dest: ./resources/[eup]/eup-stream
+    ref: master
+    dest: ./resources/[eup]/eup_stream
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-EUP-Law-Enforcement
-    ref: main
-    dest: ./resources/[eup]/eup-law
+    ref: master
+    dest: ./resources/[eup]/eup_law
 
-  # ==================== ОРУЖИЕ (примеры) ====================
+  # ===================== ОРУЖИЕ =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
-    ref: main
+    ref: master
     dest: ./resources/[weapons]/weapon_pack
 
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
-    ref: main
+    ref: master
     dest: ./resources/[weapons]/pistol_pack
 
-  # ==================== МИНИ-ИГРЫ (примеры) ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-golf
-    ref: main
-    dest: ./resources/[games]/qb-golf
-
+  # ===================== МИНИ-ИГРЫ =====================
   - action: download_github
     src: https://github.com/PLOKMJNB/FiveM-Tennis
-    ref: main
+    ref: master
     dest: ./resources/[games]/tennis
 
-  - action: download_github
-    src: https://github.com/FiveM-Games/FiveM-Poker
-    ref: main
-    dest: ./resources/[games]/poker
+  # ===================== SERVER.CFG =====================
+  - action: write_file
+    file: ./server.cfg
+    data: |
+      # ===== БАЗОВАЯ КОНФИГУРАЦИЯ =====
+      set sv_hostname "{{serverName}}"
+      set sv_licenseKey "{{svLicense}}"
+      set sv_maxclients {{maxClients}}
 
-  # ==================== НАРКОТИКИ ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-drugs
-    ref: main
-    dest: ./resources/[qb]/qb-drugs
+      # ===== MYSQL (qb-core / oxmysql) =====
+      set mysql_connection_string "mysql://{{dbUsername}}:{{dbPassword}}@{{dbHost}}:{{dbPort}}/{{dbName}}"
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-traphouse
-    ref: main
-    dest: ./resources/[qb]/qb-traphouse
+      # ===== ОПЦИОНАЛЬНО: Steam / Web API (раскомментируй при необходимости) =====
+      # set steam_webApiKey ""
+      # setr voice_useNativeAudio false
+      # setr voice_mumbleConfigName mumble_definitions.json
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-cocaine
-    ref: main
-    dest: ./resources/[qb]/qb-cocaine
+      # ===== СИСТЕМНЫЕ РЕСУРСЫ (cfx-default) =====
+      ensure mapmanager
+      ensure spawnmanager
+      ensure sessionmanager
+      ensure fivem
+      ensure hardcap
+      ensure rconlog
+      ensure scoreboard
+      ensure playernames
+      ensure baseevents
+      ensure performance
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-meth
-    ref: main
-    dest: ./resources/[qb]/qb-meth
+      # ===== CORE (порядок важен: oxmysql -> ox_lib -> qb-core) =====
+      ensure oxmysql
+      ensure ox_lib
+      ensure qb-core
+      ensure ox_inventory
+      ensure ox_target
+      ensure ox_doorlock
+      ensure ox_fuel
 
-  # ==================== ОГРАБЛЕНИЯ ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-bankrobbery
-    ref: main
-    dest: ./resources/[qb]/qb-bankrobbery
+      # ===== ГОЛОС / ТЕЛЕФОН / ВНЕШНИЙ ВИД =====
+      ensure pma-voice
+      ensure npwd
+      ensure illenium-appearance
+      ensure monolith-clothingmenu
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-jewelry
-    ref: main
-    dest: ./resources/[qb]/qb-jewelry
+      # ===== PROJECT SLOTH (в т.ч. админ-панель ps-adminmenu) =====
+      ensure ps-ui
+      ensure ps-hud
+      ensure ps-adminmenu
+      ensure ps-dispatch
+      ensure ps-buffs
+      ensure ps-vehiclekeys
+      ensure ps-housing
+      ensure ps-mdt
+      ensure ps-reports
+      ensure ps-weapons
+      ensure ps-discord
+      # ensure ps-fuel   # (закомментировано: конфликтует с ox_fuel, раскомментируй и отключи ox_fuel при желании)
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-pawnshop
-    ref: main
-    dest: ./resources/[qb]/qb-pawnshop
+      # ===== QBCORE РЕСУРСЫ =====
+      ensure qb-target
+      ensure qb-menu
+      ensure qb-input
+      ensure qb-ambulancejob
+      ensure qb-policejob
+      ensure qb-mechanicjob
+      ensure qb-taxijob
+      ensure qb-banking
+      ensure qb-clothing
+      ensure qb-barbershop
+      ensure qb-shops
+      ensure qb-vehicleshop
+      ensure qb-garages
+      ensure qb-scrapyard
+      ensure qb-truckerjob
+      ensure qb-busjob
+      ensure qb-garbagejob
+      ensure qb-hotdogjob
+      ensure qb-deliveryjob
+      ensure qb-towjob
+      ensure qb-recyclejob
+      ensure qb-drugs
+      ensure qb-traphouse
+      ensure qb-cocaine
+      ensure qb-meth
+      ensure qb-bankrobbery
+      ensure qb-jewelry
+      ensure qb-pawnshop
+      ensure qb-mining
+      ensure qb-fishing
+      ensure qb-hunting
+      ensure qb-lumberjack
+      ensure qb-interior
+      ensure qb-keys
+      ensure qb-furniture
+      ensure qb-keybind
+      ensure qb-radialmenu
+      ensure qb-commandbinding
+      ensure qb-ammunation
+      ensure qb-electronics
+      ensure qb-vendor
+      ensure qb-golf
+      ensure qb-spawn
+      ensure qb-smallresources
+      ensure qb-vehiclefailure
+      ensure qb-weathersync
+      ensure qb-speedometer
+      ensure qb-radio
+      ensure qb-multicharacter
+      ensure qb-apartments
+      ensure qb-log
 
-  # ==================== ДОПОЛНИТЕЛЬНЫЕ РАБОТЫ ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-mining
-    ref: main
-    dest: ./resources/[qb]/qb-mining
+      # АЛЬТЕРНАТИВЫ (раскомментируй одну из пар, отключив конфликтующую):
+      # ensure qb-phone       # (альтернатива npwd)
+      # ensure qb-housing     # (альтернатива ps-housing)
+      # ensure qb-adminmenu   # (альтернатива ps-adminmenu)
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-fishing
-    ref: main
-    dest: ./resources/[qb]/qb-fishing
+      # ===== КАРТЫ / ИНТЕРЬЕРЫ =====
+      ensure bob74_ipl
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-hunting
-    ref: main
-    dest: ./resources/[qb]/qb-hunting
+      # ===== ТРАНСПОРТ =====
+      ensure civ_car_pack
+      ensure police_car_pack
+      ensure motorcycle_pack
+      ensure bicycle_pack
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-lumberjack
-    ref: main
-    dest: ./resources/[qb]/qb-lumberjack
+      # ===== EUP / ОДЕЖДА =====
+      ensure eup_stream
+      ensure eup_law
 
-  # ==================== СИСТЕМА ДОМОВ (доп.) ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-interior
-    ref: main
-    dest: ./resources/[qb]/qb-interior
+      # ===== ОРУЖИЕ =====
+      ensure weapon_pack
+      ensure pistol_pack
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-keys
-    ref: main
-    dest: ./resources/[qb]/qb-keys
+      # ===== МИНИ-ИГРЫ =====
+      ensure tennis
 
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-furniture
-    ref: main
-    dest: ./resources/[qb]/qb-furniture
-
-  # ==================== БИНДЫ ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-keybind
-    ref: main
-    dest: ./resources/[qb]/qb-keybind
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-radialmenu
-    ref: main
-    dest: ./resources/[qb]/qb-radialmenu
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-commandbinding
-    ref: main
-    dest: ./resources/[qb]/qb-commandbinding
-
-  # ==================== МАГАЗИНЫ (доп.) ====================
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-ammunation
-    ref: main
-    dest: ./resources/[qb]/qb-ammunation
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-electronics
-    ref: main
-    dest: ./resources/[qb]/qb-electronics
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-vendor
-    ref: main
-    dest: ./resources/[qb]/qb-vendor
-
-  # ==================== ОЧИСТКА ====================
+  # ===================== ОЧИСТКА =====================
   - action: remove_path
     path: ./tmp

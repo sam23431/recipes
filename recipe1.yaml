@@ -22,6 +22,7 @@ description: "QBCore + ox + Project Sloth, curated reliable open-source resource
 tasks:
   # ===================== БАЗА / DEFAULT RESOURCES =====================
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/citizenfx/cfx-server-data
     ref: master
     subpath: resources
@@ -34,6 +35,7 @@ tasks:
 
   # ===================== CORE / ЯДРО =====================
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-core
     ref: main
     dest: ./resources/[qb]/qb-core
@@ -43,6 +45,7 @@ tasks:
 
   # oxmysql / ox_lib / ox_inventory (releases - стабильнее клона)
   - action: download_file
+    timeoutSeconds: 3600
     url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/oxmysql.zip
   - action: unzip
@@ -50,6 +53,7 @@ tasks:
     dest: ./resources/[ox]
 
   - action: download_file
+    timeoutSeconds: 3600
     url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
   - action: unzip
@@ -57,6 +61,7 @@ tasks:
     dest: ./resources/[ox]
 
   - action: download_file
+    timeoutSeconds: 3600
     url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
@@ -64,355 +69,425 @@ tasks:
     dest: ./resources/[ox]
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/overextended/ox_target
     ref: main
     dest: ./resources/[ox]/ox_target
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/overextended/ox_doorlock
     ref: main
     dest: ./resources/[ox]/ox_doorlock
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/overextended/ox_fuel
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
   # ===================== QBCORE РЕСУРСЫ (проверенные имена) =====================
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-target
     ref: main
     dest: ./resources/[qb]/qb-target
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-menu
     ref: main
     dest: ./resources/[qb]/qb-menu
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-input
     ref: main
     dest: ./resources/[qb]/qb-input
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-adminmenu
     ref: main
     dest: ./resources/[qb]/qb-adminmenu
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-ambulancejob
     ref: main
     dest: ./resources/[qb]/qb-ambulancejob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-policejob
     ref: main
     dest: ./resources/[qb]/qb-policejob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-mechanicjob
     ref: main
     dest: ./resources/[qb]/qb-mechanicjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-taxijob
     ref: main
     dest: ./resources/[qb]/qb-taxijob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-banking
     ref: main
     dest: ./resources/[qb]/qb-banking
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-shops
     ref: main
     dest: ./resources/[qb]/qb-shops
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-vehicleshop
     ref: main
     dest: ./resources/[qb]/qb-vehicleshop
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-garages
     ref: main
     dest: ./resources/[qb]/qb-garages
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-scrapyard
     ref: main
     dest: ./resources/[qb]/qb-scrapyard
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-truckerjob
     ref: main
     dest: ./resources/[qb]/qb-truckerjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-busjob
     ref: main
     dest: ./resources/[qb]/qb-busjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-garbagejob
     ref: main
     dest: ./resources/[qb]/qb-garbagejob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-hotdogjob
     ref: main
     dest: ./resources/[qb]/qb-hotdogjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-towjob
     ref: main
     dest: ./resources/[qb]/qb-towjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-recyclejob
     ref: main
     dest: ./resources/[qb]/qb-recyclejob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-drugs
     ref: main
     dest: ./resources/[qb]/qb-drugs
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-traphouse
     ref: main
     dest: ./resources/[qb]/qb-traphouse
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-bankrobbery
     ref: main
     dest: ./resources/[qb]/qb-bankrobbery
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-pawnshop
     ref: main
     dest: ./resources/[qb]/qb-pawnshop
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-jewelery
     ref: main
     dest: ./resources/[qb]/qb-jewelery
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-interior
     ref: main
     dest: ./resources/[qb]/qb-interior
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-radialmenu
     ref: main
     dest: ./resources/[qb]/qb-radialmenu
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-spawn
     ref: main
     dest: ./resources/[qb]/qb-spawn
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-smallresources
     ref: main
     dest: ./resources/[qb]/qb-smallresources
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-weathersync
     ref: main
     dest: ./resources/[qb]/qb-weathersync
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-radio
     ref: main
     dest: ./resources/[qb]/qb-radio
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-multicharacter
     ref: main
     dest: ./resources/[qb]/qb-multicharacter
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-apartments
     ref: main
     dest: ./resources/[qb]/qb-apartments
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-clothing
     ref: main
     dest: ./resources/[qb]/qb-clothing
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-cityhall
     ref: main
     dest: ./resources/[qb]/qb-cityhall
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-crypto
     ref: main
     dest: ./resources/[qb]/qb-crypto
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-diving
     ref: main
     dest: ./resources/[qb]/qb-diving
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-houserobbery
     ref: main
     dest: ./resources/[qb]/qb-houserobbery
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-newsjob
     ref: main
     dest: ./resources/[qb]/qb-newsjob
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-vehiclesales
     ref: main
     dest: ./resources/[qb]/qb-vehiclesales
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-printer
     ref: main
     dest: ./resources/[qb]/qb-printer
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-storerobbery
     ref: main
     dest: ./resources/[qb]/qb-storerobbery
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-streetraces
     ref: main
     dest: ./resources/[qb]/qb-streetraces
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-lapraces
     ref: main
     dest: ./resources/[qb]/qb-lapraces
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-truckrobbery
     ref: main
     dest: ./resources/[qb]/qb-truckrobbery
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-weed
     ref: main
     dest: ./resources/[qb]/qb-weed
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-vineyard
     ref: main
     dest: ./resources/[qb]/qb-vineyard
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-prison
     ref: main
     dest: ./resources/[qb]/qb-prison
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-anticheat
     ref: main
     dest: ./resources/[qb]/qb-anticheat
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-crafting
     ref: main
     dest: ./resources/[qb]/qb-crafting
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-minigames
     ref: main
     dest: ./resources/[qb]/qb-minigames
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-loading
     ref: main
     dest: ./resources/[qb]/qb-loading
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-weapons
     ref: main
     dest: ./resources/[qb]/qb-weapons
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/qb-vehiclekeys
     ref: main
     dest: ./resources/[qb]/qb-vehiclekeys
 
   # Зависимости / утилиты qbcore-framework
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/connectqueue
     ref: master
     dest: ./resources/[qb]/connectqueue
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/progressbar
     ref: main
     dest: ./resources/[qb]/progressbar
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/qbcore-framework/PolyZone
     ref: master
     dest: ./resources/[qb]/PolyZone
 
   # ===================== PROJECT SLOTH =====================
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-ui
     ref: main
     dest: ./resources/[ps]/ps-ui
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-hud
     ref: main
     dest: ./resources/[ps]/ps-hud
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-dispatch
     ref: main
     dest: ./resources/[ps]/ps-dispatch
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-adminmenu
     ref: main
     dest: ./resources/[ps]/ps-adminmenu
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-fuel
     ref: main
     dest: ./resources/[ps]/ps-fuel
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-buffs
     ref: main
     dest: ./resources/[ps]/ps-buffs
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-housing
     ref: main
     dest: ./resources/[ps]/ps-housing
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-mdt
     ref: main
     dest: ./resources/[ps]/ps-mdt
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Project-Sloth/ps-discord
     ref: main
     dest: ./resources/[ps]/ps-discord
 
   # ===================== STANDALONE / UI / VOICE =====================
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/[standalone]/pma-voice
 
   - action: download_file
+    timeoutSeconds: 3600
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
     path: ./tmp/npwd.zip
   - action: unzip
@@ -423,6 +498,7 @@ tasks:
     file: ./resources/[standalone]/npwd/import.sql
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/fivemland/illenium-appearance
     ref: main
     dest: ./resources/[standalone]/illenium-appearance
@@ -440,46 +516,54 @@ tasks:
     file: ./resources/[standalone]/illenium-appearance/sql/management_outfits.sql
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/monolith-vision/monolith-clothingmenu
     ref: main
     dest: ./resources/[standalone]/monolith-clothingmenu
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/Bob74/bob74_ipl
     ref: master
     dest: ./resources/[maps]/bob74_ipl
 
   # ===================== PLOKMJNB ПАКИ =====
-  # (пакам машин ~6ГБ - убраны: таймаут при деплое. Добавь свои авто-паки отдельно)
+  # (авто-пак ~6ГБ - возвращён с таймаутом 1 час, как просили)
   - action: download_github
+    timeoutSeconds: 3600
+    src: https://github.com/PLOKMJNB/FiveM-Civ-Car-Pack
+    ref: master
+    dest: ./resources/[vehicles]/civ_car_pack
+
+  - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-EUP-Stream
     ref: master
     dest: ./resources/[eup]/eup_stream
-    timeoutSeconds: 600
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-EUP-Law-Enforcement
     ref: master
     dest: ./resources/[eup]/eup_law
-    timeoutSeconds: 600
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-Weapon-Pack
     ref: master
     dest: ./resources/[weapons]/weapon_pack
-    timeoutSeconds: 600
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-Pistol-Pack
     ref: master
     dest: ./resources/[weapons]/pistol_pack
-    timeoutSeconds: 600
 
   - action: download_github
+    timeoutSeconds: 3600
     src: https://github.com/PLOKMJNB/FiveM-Tennis
     ref: master
     dest: ./resources/[games]/tennis
-    timeoutSeconds: 600
 
   # ===================== SERVER.CFG =====================
   - action: write_file
@@ -602,7 +686,7 @@ tasks:
       ensure bob74_ipl
 
       # ===== ТРАНСПОРТ =====
-      # (пакам машин ~6ГБ убраны: таймаут при деплое; добавь свои авто-паки и раскомментируй ensure)
+      ensure civ_car_pack
 
       # ===== EUP / ОДЕЖДА =====
       ensure eup_stream

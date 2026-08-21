@@ -620,13 +620,13 @@ tasks:
     src: ./tmp/eup2.zip
 
   - action: waste_time
-    seconds: 15
+    seconds: 10
 
-  # Big EUP stream pack (~888MB, single resource w/ fxmanifest.lua)
+  # Medium EUP stream pack (real resource w/ fxmanifest.lua, ~22MB) - replaces the 888MB pack that hit txAdmin's 150s limit
   - action: download_github
-    dest: ./resources/[standalone]/fivem-eup
+    dest: ./resources/[standalone]/military-police_vestpack
     ref: main
-    src: https://github.com/jaylac2000/fivem-eup
+    src: https://github.com/WolfPack-Development/military-police_vestpack
 
   # Clean up
   - action: remove_path

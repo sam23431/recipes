@@ -339,6 +339,11 @@ tasks:
     ref: main
     dest: ./resources/[qb]/qb-weapons
 
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vehiclekeys
+    ref: main
+    dest: ./resources/[qb]/qb-vehiclekeys
+
   # Зависимости / утилиты qbcore-framework
   - action: download_github
     src: https://github.com/qbcore-framework/connectqueue
@@ -387,11 +392,6 @@ tasks:
     dest: ./resources/[ps]/ps-buffs
 
   - action: download_github
-    src: https://github.com/Project-Sloth/ps-vehiclekeys
-    ref: main
-    dest: ./resources/[ps]/ps-vehiclekeys
-
-  - action: download_github
     src: https://github.com/Project-Sloth/ps-housing
     ref: main
     dest: ./resources/[ps]/ps-housing
@@ -400,16 +400,6 @@ tasks:
     src: https://github.com/Project-Sloth/ps-mdt
     ref: main
     dest: ./resources/[ps]/ps-mdt
-
-  - action: download_github
-    src: https://github.com/Project-Sloth/ps-reports
-    ref: main
-    dest: ./resources/[ps]/ps-reports
-
-  - action: download_github
-    src: https://github.com/Project-Sloth/ps-weapons
-    ref: main
-    dest: ./resources/[ps]/ps-weapons
 
   - action: download_github
     src: https://github.com/Project-Sloth/ps-discord
@@ -558,11 +548,8 @@ tasks:
       ensure ps-adminmenu
       ensure ps-dispatch
       ensure ps-buffs
-      ensure ps-vehiclekeys
       ensure ps-housing
       ensure ps-mdt
-      ensure ps-reports
-      ensure ps-weapons
       ensure ps-discord
       # ensure ps-fuel   # (закомментировано: конфликтует с ox_fuel, раскомментируй и отключи ox_fuel при желании)
 
@@ -623,6 +610,7 @@ tasks:
       ensure qb-minigames
       ensure qb-loading
       ensure qb-weapons
+      ensure qb-vehiclekeys
 
       # АЛЬТЕРНАТИВЫ (раскомментируй одну из пар, отключив конфликтующую):
       # ensure qb-adminmenu   # (альтернатива ps-adminmenu)

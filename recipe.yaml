@@ -1,17 +1,15 @@
 # ============================================================================
-#  QBCore Full Server Recipe (curated, reliable open-source resources)
+#  QBCore Full Server Recipe (curated, verified open-source resources)
 #  Framework: QBCore + ox + Project Sloth | In-game admin: ps-adminmenu
 #
-#  IMPORTANT NOTES:
+#  NOTES:
 #  - Every download_github has an explicit `ref` (branch) to avoid GitHub
 #    401/403 API limits that hit recipes with >30 ref-less clones.
-#  - If a deploy fails, the log will name the broken task; usually it is a
-#    renamed branch -> just fix that one `ref`/`url`.
-#  - Conflicting systems (phone/housing/fuel/admin) are resolved by ensuring
-#    only ONE of each; the alternatives are downloaded but commented out in
-#    server.cfg so you can swap easily.
-#  - To grow toward 500 mods, copy any `[category]/resource` block and add an
-#    `ensure` line at the bottom.
+#  - Conflicting systems (phone/housing/fuel/admin) resolved by ensuring ONE
+#    of each; alternatives are downloaded but commented in server.cfg.
+#  - Repo names verified against github.com/qbcore-framework (only existing
+#    ones are included). To grow the server, copy any [category]/resource
+#    block and add an `ensure` line at the bottom.
 # ============================================================================
 
 $engine: 3
@@ -80,7 +78,7 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
-  # ===================== QBCORE РЕСУРСЫ / JOBS / SYSTEMS =====================
+  # ===================== QBCORE РЕСУРСЫ (проверенные имена) =====================
   - action: download_github
     src: https://github.com/qbcore-framework/qb-target
     ref: main
@@ -95,11 +93,6 @@ tasks:
     src: https://github.com/qbcore-framework/qb-input
     ref: main
     dest: ./resources/[qb]/qb-input
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-phone
-    ref: main
-    dest: ./resources/[qb]/qb-phone
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-adminmenu
@@ -130,21 +123,6 @@ tasks:
     src: https://github.com/qbcore-framework/qb-banking
     ref: main
     dest: ./resources/[qb]/qb-banking
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-housing
-    ref: main
-    dest: ./resources/[qb]/qb-housing
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-clothing
-    ref: main
-    dest: ./resources/[qb]/qb-clothing
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-barbershop
-    ref: main
-    dest: ./resources/[qb]/qb-barbershop
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-shops
@@ -187,11 +165,6 @@ tasks:
     dest: ./resources/[qb]/qb-hotdogjob
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-deliveryjob
-    ref: main
-    dest: ./resources/[qb]/qb-deliveryjob
-
-  - action: download_github
     src: https://github.com/qbcore-framework/qb-towjob
     ref: main
     dest: ./resources/[qb]/qb-towjob
@@ -212,24 +185,9 @@ tasks:
     dest: ./resources/[qb]/qb-traphouse
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-cocaine
-    ref: main
-    dest: ./resources/[qb]/qb-cocaine
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-meth
-    ref: main
-    dest: ./resources/[qb]/qb-meth
-
-  - action: download_github
     src: https://github.com/qbcore-framework/qb-bankrobbery
     ref: main
     dest: ./resources/[qb]/qb-bankrobbery
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-jewelry
-    ref: main
-    dest: ./resources/[qb]/qb-jewelry
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-pawnshop
@@ -237,24 +195,9 @@ tasks:
     dest: ./resources/[qb]/qb-pawnshop
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-mining
+    src: https://github.com/qbcore-framework/qb-jewelery
     ref: main
-    dest: ./resources/[qb]/qb-mining
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-fishing
-    ref: main
-    dest: ./resources/[qb]/qb-fishing
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-hunting
-    ref: main
-    dest: ./resources/[qb]/qb-hunting
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-lumberjack
-    ref: main
-    dest: ./resources/[qb]/qb-lumberjack
+    dest: ./resources/[qb]/qb-jewelery
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-interior
@@ -262,49 +205,9 @@ tasks:
     dest: ./resources/[qb]/qb-interior
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-keys
-    ref: main
-    dest: ./resources/[qb]/qb-keys
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-furniture
-    ref: main
-    dest: ./resources/[qb]/qb-furniture
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-keybind
-    ref: main
-    dest: ./resources/[qb]/qb-keybind
-
-  - action: download_github
     src: https://github.com/qbcore-framework/qb-radialmenu
     ref: main
     dest: ./resources/[qb]/qb-radialmenu
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-commandbinding
-    ref: main
-    dest: ./resources/[qb]/qb-commandbinding
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-ammunation
-    ref: main
-    dest: ./resources/[qb]/qb-ammunation
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-electronics
-    ref: main
-    dest: ./resources/[qb]/qb-electronics
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-vendor
-    ref: main
-    dest: ./resources/[qb]/qb-vendor
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-golf
-    ref: main
-    dest: ./resources/[qb]/qb-golf
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-spawn
@@ -317,19 +220,9 @@ tasks:
     dest: ./resources/[qb]/qb-smallresources
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-vehiclefailure
-    ref: main
-    dest: ./resources/[qb]/qb-vehiclefailure
-
-  - action: download_github
     src: https://github.com/qbcore-framework/qb-weathersync
     ref: main
     dest: ./resources/[qb]/qb-weathersync
-
-  - action: download_github
-    src: https://github.com/qbcore-framework/qb-speedometer
-    ref: main
-    dest: ./resources/[qb]/qb-speedometer
 
   - action: download_github
     src: https://github.com/qbcore-framework/qb-radio
@@ -347,9 +240,120 @@ tasks:
     dest: ./resources/[qb]/qb-apartments
 
   - action: download_github
-    src: https://github.com/qbcore-framework/qb-log
+    src: https://github.com/qbcore-framework/qb-clothing
     ref: main
-    dest: ./resources/[qb]/qb-log
+    dest: ./resources/[qb]/qb-clothing
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-cityhall
+    ref: main
+    dest: ./resources/[qb]/qb-cityhall
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-crypto
+    ref: main
+    dest: ./resources/[qb]/qb-crypto
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-diving
+    ref: main
+    dest: ./resources/[qb]/qb-diving
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-houserobbery
+    ref: main
+    dest: ./resources/[qb]/qb-houserobbery
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-newsjob
+    ref: main
+    dest: ./resources/[qb]/qb-newsjob
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vehiclesales
+    ref: main
+    dest: ./resources/[qb]/qb-vehiclesales
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-printer
+    ref: main
+    dest: ./resources/[qb]/qb-printer
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-storerobbery
+    ref: main
+    dest: ./resources/[qb]/qb-storerobbery
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-streetraces
+    ref: main
+    dest: ./resources/[qb]/qb-streetraces
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-lapraces
+    ref: main
+    dest: ./resources/[qb]/qb-lapraces
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-truckrobbery
+    ref: main
+    dest: ./resources/[qb]/qb-truckrobbery
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-weed
+    ref: main
+    dest: ./resources/[qb]/qb-weed
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-vineyard
+    ref: main
+    dest: ./resources/[qb]/qb-vineyard
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-prison
+    ref: main
+    dest: ./resources/[qb]/qb-prison
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-anticheat
+    ref: main
+    dest: ./resources/[qb]/qb-anticheat
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-crafting
+    ref: main
+    dest: ./resources/[qb]/qb-crafting
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-minigames
+    ref: main
+    dest: ./resources/[qb]/qb-minigames
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-loading
+    ref: main
+    dest: ./resources/[qb]/qb-loading
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/qb-weapons
+    ref: main
+    dest: ./resources/[qb]/qb-weapons
+
+  # Зависимости / утилиты qbcore-framework
+  - action: download_github
+    src: https://github.com/qbcore-framework/connectqueue
+    ref: main
+    dest: ./resources/[qb]/connectqueue
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/progressbar
+    ref: main
+    dest: ./resources/[qb]/progressbar
+
+  - action: download_github
+    src: https://github.com/qbcore-framework/PolyZone
+    ref: main
+    dest: ./resources/[qb]/PolyZone
 
   # ===================== PROJECT SLOTH =====================
   - action: download_github
@@ -562,6 +566,11 @@ tasks:
       ensure ps-discord
       # ensure ps-fuel   # (закомментировано: конфликтует с ox_fuel, раскомментируй и отключи ox_fuel при желании)
 
+      # ===== ЗАВИСИМОСТИ =====
+      ensure connectqueue
+      ensure progressbar
+      ensure PolyZone
+
       # ===== QBCORE РЕСУРСЫ =====
       ensure qb-target
       ensure qb-menu
@@ -571,8 +580,6 @@ tasks:
       ensure qb-mechanicjob
       ensure qb-taxijob
       ensure qb-banking
-      ensure qb-clothing
-      ensure qb-barbershop
       ensure qb-shops
       ensure qb-vehicleshop
       ensure qb-garages
@@ -581,43 +588,43 @@ tasks:
       ensure qb-busjob
       ensure qb-garbagejob
       ensure qb-hotdogjob
-      ensure qb-deliveryjob
       ensure qb-towjob
       ensure qb-recyclejob
       ensure qb-drugs
       ensure qb-traphouse
-      ensure qb-cocaine
-      ensure qb-meth
       ensure qb-bankrobbery
-      ensure qb-jewelry
       ensure qb-pawnshop
-      ensure qb-mining
-      ensure qb-fishing
-      ensure qb-hunting
-      ensure qb-lumberjack
+      ensure qb-jewelery
       ensure qb-interior
-      ensure qb-keys
-      ensure qb-furniture
-      ensure qb-keybind
       ensure qb-radialmenu
-      ensure qb-commandbinding
-      ensure qb-ammunation
-      ensure qb-electronics
-      ensure qb-vendor
-      ensure qb-golf
       ensure qb-spawn
       ensure qb-smallresources
-      ensure qb-vehiclefailure
       ensure qb-weathersync
-      ensure qb-speedometer
       ensure qb-radio
       ensure qb-multicharacter
       ensure qb-apartments
-      ensure qb-log
+      ensure qb-clothing
+      ensure qb-cityhall
+      ensure qb-crypto
+      ensure qb-diving
+      ensure qb-houserobbery
+      ensure qb-newsjob
+      ensure qb-vehiclesales
+      ensure qb-printer
+      ensure qb-storerobbery
+      ensure qb-streetraces
+      ensure qb-lapraces
+      ensure qb-truckrobbery
+      ensure qb-weed
+      ensure qb-vineyard
+      ensure qb-prison
+      ensure qb-anticheat
+      ensure qb-crafting
+      ensure qb-minigames
+      ensure qb-loading
+      ensure qb-weapons
 
       # АЛЬТЕРНАТИВЫ (раскомментируй одну из пар, отключив конфликтующую):
-      # ensure qb-phone       # (альтернатива npwd)
-      # ensure qb-housing     # (альтернатива ps-housing)
       # ensure qb-adminmenu   # (альтернатива ps-adminmenu)
 
       # ===== КАРТЫ / ИНТЕРЬЕРЫ =====
